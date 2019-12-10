@@ -1,7 +1,9 @@
 import Foundation
 import RequestKit
+#if swift(>=4.1)
 #if canImport(FoundationNetworking)
 import FoundationNetworking
+#endif
 #endif
 
 public extension Octokit {

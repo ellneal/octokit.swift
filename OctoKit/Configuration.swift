@@ -1,7 +1,9 @@
 import Foundation
 import RequestKit
+#if swift(>=4.1)
 #if canImport(FoundationNetworking)
 import FoundationNetworking
+#endif
 #endif
 
 public let githubBaseURL = "https://api.github.com"
@@ -129,8 +131,12 @@ enum OAuthRouter: Router {
         }
     }
 
+#if swift(>=4.1)
 #if canImport(FoundationNetworking)
     typealias FoundationURLRequestType = FoundationNetworking.URLRequest
+#else
+    typealias FoundationURLRequestType = Foundation.URLRequest
+#endif
 #else
     typealias FoundationURLRequestType = Foundation.URLRequest
 #endif
